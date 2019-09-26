@@ -10,11 +10,13 @@ public class Main {
         ApplicationContext factory = new AnnotationConfigApplicationContext(AppConfig.class);
         System.out.println("Config file loaded.");
 
+        movie movie = (movie)factory.getBean("movie2");
+        System.out.println(movie.getActor().getName());
+        System.out.println(movie.getActor().getGender());
+        System.out.println(movie.getActor().getAge());
+        movie.setBeanFactory(factory);
+        movie.setBeanName("beam123");
 
-        movie movie = factory.getBean(movie.class);
-        System.out.println("Name: "+movie.getActor().getName());
-        System.out.println("Gender: "+movie.getActor().getGender());
-        System.out.println("Age: "+movie.getActor().getAge());
 
     }
 }
