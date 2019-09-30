@@ -1,28 +1,41 @@
 package com.stackroute;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
 @Configuration
 public class AppConfig {
+    @Bean(value = "Init")
+    public com.stackroute.BeanLifeCycleDemo Init(){
 
-    @Bean
-    public actor getactor()
-    {
-        actor actor = new actor();
-        actor.setName("Akshay kumar");
-        actor.setGender("Male");
-        actor.setAge(70);
-        return actor;
 
+
+
+        com.stackroute.BeanLifeCycleDemo beanLifeCycleDemo = new com.stackroute.BeanLifeCycleDemo();
+
+
+
+        return beanLifeCycleDemo;
     }
 
+    @Bean(value = "destroy")
 
-    @Bean
-    public  movie getmovie()
-    {
-        movie movie = new movie();
-        return movie;
+
+
+    public com.stackroute.BeanLifeCycleDemo destroy(){
+
+
+
+
+
+        com.stackroute.BeanLifeCycleDemo beanLifeCycleDemo = new com.stackroute.BeanLifeCycleDemo();
+
+
+
+
+
+        return beanLifeCycleDemo;
     }
+
 }
