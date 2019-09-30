@@ -2,21 +2,19 @@ package com.stackroute;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
 
 @Component
-class BeanLifeCycleDemo implements InitializingBean, DisposableBean {
-
-
-
+public class BeanPostProcessorDemoBean implements BeanPostProcessor,InitializingBean, DisposableBean {
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext factory = new AnnotationConfigApplicationContext(AppConfig.class);
-        factory.registerShutdownHook();
-        BeanLifeCycleDemo beanLifeCycleDemo = (BeanLifeCycleDemo) factory.getBean("lifecycle");
+        ApplicationContext factory = new AnnotationConfigApplicationContext(AppConfig.class);
+        ((AnnotationConfigApplicationContext) factory).registerShutdownHook();
+        BeanPostProcessorDemoBean beanLifeCycleDemo = (BeanPostProcessorDemoBean) factory.getBean("lifecycle");
     }
     @PostConstruct
     public void Init ()

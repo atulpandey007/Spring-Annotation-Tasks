@@ -7,34 +7,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
     @Bean(value = "Init")
-    public com.stackroute.BeanLifeCycleDemo Init(){
-
-
-
-
-        com.stackroute.BeanLifeCycleDemo beanLifeCycleDemo = new com.stackroute.BeanLifeCycleDemo();
-
-
-
+    public BeanPostProcessorDemoBean Init(){
+        BeanPostProcessorDemoBean beanLifeCycleDemo = new BeanPostProcessorDemoBean();
         return beanLifeCycleDemo;
     }
 
     @Bean(value = "destroy")
-
-
-
-    public com.stackroute.BeanLifeCycleDemo destroy(){
-
-
-
-
-
-        com.stackroute.BeanLifeCycleDemo beanLifeCycleDemo = new com.stackroute.BeanLifeCycleDemo();
-
-
-
-
-
+    public BeanPostProcessorDemoBean destroy(){
+        BeanPostProcessorDemoBean beanLifeCycleDemo = new BeanPostProcessorDemoBean();
         return beanLifeCycleDemo;
     }
 
